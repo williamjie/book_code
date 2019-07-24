@@ -4,7 +4,7 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.dbcp.BasicDataSourceFactory;
+import org.apache.commons.dbcp2.BasicDataSourceFactory;
 import org.apache.ibatis.datasource.DataSourceFactory;
 
 public class DbcpDataSourceFactory implements DataSourceFactory {
