@@ -4,13 +4,13 @@ import java.lang.reflect.Method;
 
 public class Interceptor2 implements Interceptor {
     public boolean before(Object proxy, Object target, Method method, Object[] args) {
-        System.out.println("¡¾À¹½ØÆ÷2¡¿µÄbefore·½·¨");
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½beforeï¿½ï¿½ï¿½ï¿½");
         return true;
     }
     
     public void around(Object proxy, Object target, Method method, Object[] args) {}
 
     public void after(Object proxy, Object target, Method method, Object[] args) {
-        System.out.println("¡¾À¹½ØÆ÷2¡¿µÄafter·½·¨");
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½afterï¿½ï¿½ï¿½ï¿½");
     }
 }

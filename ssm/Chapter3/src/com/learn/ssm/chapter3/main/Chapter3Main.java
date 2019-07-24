@@ -30,7 +30,6 @@ public class Chapter3Main {
 		}
 	}
 	
-	//×¢½âSQL²âÊÔ
 	private static void testRoleMapper2() {
 		Logger log = Logger.getLogger(Chapter3Main.class);
 		SqlSession sqlSession = null;
