@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+<resultMap id="roleResultMap" type="com.learn.chapter4.pojo.Role">
+    <id property="id" column="id" />
+    <result property ="roleName" column="role_name"/>
+    <result property = "note" column = "note">
+</resultMap>
+
+
+
+<select parameterType="long "id="getRole" resultMap = "roleResultMap">
+        select id, role_name, note from t_role where id=#{id}
+</select>
