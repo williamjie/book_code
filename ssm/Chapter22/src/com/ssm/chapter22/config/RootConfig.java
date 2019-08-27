@@ -29,18 +29,18 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 import redis.clients.jedis.JedisPoolConfig;
 
 @Configuration
-//¶¨ÒåSpring É¨ÃèµÄ°ü
+//ï¿½ï¿½ï¿½ï¿½Spring É¨ï¿½ï¿½Ä°ï¿½
 @ComponentScan(value= "com.*", includeFilters= {@Filter(type = FilterType.ANNOTATION, value ={Service.class})})
-//Ê¹ÓÃÊÂÎñÇý¶¯¹ÜÀíÆ÷
+//Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 @EnableTransactionManagement
-//ÊµÏÖ½Ó¿ÚTransactionManagementConfigurer£¬ÕâÑù¿ÉÒÔÅäÖÃ×¢½âÇý¶¯ÊÂÎñ
+//Êµï¿½Ö½Ó¿ï¿½TransactionManagementConfigurerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 public class RootConfig implements TransactionManagementConfigurer {
 	
 	private DataSource dataSource = null;
 	
 	/**
-	 * ÅäÖÃÊý¾Ý¿â.
-	 * @return Êý¾ÝÁ¬½Ó³Ø
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½.
+	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½
 	 */
 	@Bean(name = "dataSource")
 	public DataSource initDataSource() {
@@ -51,7 +51,7 @@ public class RootConfig implements TransactionManagementConfigurer {
 		props.setProperty("driverClassName", "com.mysql.jdbc.Driver");
 		props.setProperty("url", "jdbc:mysql://localhost:3306/chapter22");
 		props.setProperty("username", "root");
-		props.setProperty("password", "123456");
+		props.setProperty("password", "root");
        props.setProperty("maxActive", "200");
 		props.setProperty("maxIdle", "20");
 		props.setProperty("maxWait", "30000");
@@ -64,22 +64,22 @@ public class RootConfig implements TransactionManagementConfigurer {
 	}
 	
 	/***
-	 * ÅäÖÃSqlSessionFactoryBean
+	 * ï¿½ï¿½ï¿½ï¿½SqlSessionFactoryBean
 	 * @return SqlSessionFactoryBean
 	 */
 	@Bean(name="sqlSessionFactory")
 	public SqlSessionFactoryBean initSqlSessionFactory() {
 		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
 		sqlSessionFactory.setDataSource(initDataSource());
-		//ÅäÖÃMyBatisÅäÖÃÎÄ¼þ
+		//ï¿½ï¿½ï¿½ï¿½MyBatisï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 		Resource resource = new ClassPathResource("mybatis/mybatis-config.xml");
 		sqlSessionFactory.setConfigLocation(resource);
 		return sqlSessionFactory;
 	}
 	
 	/***
-	 * Í¨¹ý×Ô¶¯É¨Ãè£¬·¢ÏÖMyBatis Mapper½Ó¿Ú
-	 * @return MapperÉ¨ÃèÆ÷
+	 * Í¨ï¿½ï¿½ï¿½Ô¶ï¿½É¨ï¿½è£¬ï¿½ï¿½ï¿½ï¿½MyBatis Mapperï¿½Ó¿ï¿½
+	 * @return MapperÉ¨ï¿½ï¿½ï¿½ï¿½
 	 */
 	@Bean 
 	public MapperScannerConfigurer initMapperScannerConfigurer() {
@@ -92,7 +92,7 @@ public class RootConfig implements TransactionManagementConfigurer {
 	
 	
 	/**
-	 * ÊµÏÖ½Ó¿Ú·½·¨£¬×¢²á×¢½âÊÂÎñ£¬µ±@Transactional Ê¹ÓÃµÄÊ±ºò²úÉúÊý¾Ý¿âÊÂÎñ 
+	 * Êµï¿½Ö½Ó¿Ú·ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ñ£¬µï¿½@Transactional Ê¹ï¿½Ãµï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	 */
 	@Override
 	@Bean(name="annotationDrivenTransactionManager")
@@ -106,25 +106,25 @@ public class RootConfig implements TransactionManagementConfigurer {
 	@Bean(name = "redisTemplate")
 	public RedisTemplate initRedisTemplate() {
 		JedisPoolConfig poolConfig = new JedisPoolConfig();
-		//×î´ó¿ÕÏÐÊý
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		poolConfig.setMaxIdle(50);
-		//×î´óÁ¬½ÓÊý
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		poolConfig.setMaxTotal(100);
-		//×î´óµÈ´ýºÁÃëÊý
+		//ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		poolConfig.setMaxWaitMillis(20000);
-		//´´½¨JedisÁ´½Ó¹¤³§
+		//ï¿½ï¿½ï¿½ï¿½Jedisï¿½ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½
 		JedisConnectionFactory connectionFactory = new JedisConnectionFactory(poolConfig);
 		connectionFactory.setHostName("localhost");
 		connectionFactory.setPort(6379);
-		//µ÷ÓÃºó³õÊ¼»¯·½·¨£¬Ã»ÓÐËü½«Å×³öÒì³£
+		//ï¿½ï¿½ï¿½Ãºï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×³ï¿½ï¿½ì³£
 		connectionFactory.afterPropertiesSet();
-		//×Ô¶¨RedisÐòÁÐ»¯Æ÷
+		//ï¿½Ô¶ï¿½Redisï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½
 		RedisSerializer jdkSerializationRedisSerializer = new JdkSerializationRedisSerializer();
 		RedisSerializer stringRedisSerializer = new StringRedisSerializer();
-		//¶¨ÒåRedisTemplate£¬²¢ÉèÖÃÁ¬½Ó¹¤³Ì[ÐÞ¸ÄÎª£º¹¤³§]
+		//ï¿½ï¿½ï¿½ï¿½RedisTemplateï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½[ï¿½Þ¸ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]
 		RedisTemplate redisTemplate = new RedisTemplate();
 		redisTemplate.setConnectionFactory(connectionFactory);
-		//ÉèÖÃÐòÁÐ»¯Æ÷
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½
 		redisTemplate.setDefaultSerializer(stringRedisSerializer);
 		redisTemplate.setKeySerializer(stringRedisSerializer);
 		redisTemplate.setValueSerializer(stringRedisSerializer);

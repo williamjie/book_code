@@ -16,9 +16,10 @@ import com.ssm.chapter12.pojo.Role;
 public class Chapter12Main {
 
 	public static void main(String[] args) {
-//		testJdbcExample();
+		//testJdbcExample();
+		//testJdbcExample();
 //		tesSpring();
-//		testSqlSessionTemplate();
+		testSqlSessionTemplate();
 //		testRoleMapper() ;
 		double result = (119*10000*0.12 + 119*(10000-4000)*0.11)*0.94;
 		System.out.println(result*0.88);
@@ -57,7 +58,7 @@ public class Chapter12Main {
 	
 	public static void testSqlSessionTemplate() {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-cfg.xml");
-		//ctxÎªSpring IoCÈÝÆ÷
+		//ctxÎªSpring IoCï¿½ï¿½ï¿½ï¿½
 		SqlSessionTemplate sqlSessionTemplate = ctx.getBean(SqlSessionTemplate.class);
 		Role role = new Role();
 		role.setRoleName("role_name_sqlSessionTemplate");

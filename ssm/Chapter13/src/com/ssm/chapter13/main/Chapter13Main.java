@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.ssm.chapter13.pojo.Role;
 import com.ssm.chapter13.service.RoleListService;
+
 public class Chapter13Main {
 	public static void main(String [] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext ("spring-cfg.xml");
@@ -17,6 +18,8 @@ public class Chapter13Main {
             roleList.add(role);
         }
         int count = roleListService.insertRoleList(roleList);
-	   System.out.println(count);
+        System.out.println("=========");
+
+        System.out.println(count);
 	}
 }

@@ -21,8 +21,39 @@
 
 
 
+<select id="findRoles" parameterType = "role" resultMap="roleResultMap">
+        select role_no, role_name, note from t_role
+        where 1 =1
+        <choose>
+            <when test="roleNo != null and roleNo !=''">
+                AND role_no = #{roleNo}
+            </when>
+            <otherwise>
+                AND note is not null
+            </otherwise>
+        </chosse>
+</select>
 
 
+
+<select id="findUserBySex" resultType="user">
+    select * from t_role where role_no in 
+        <foreach item="roleNo" index="index" collection="roleNoList">
+            open="(" separator="," close=")" >
+            #{roleNo}
+        </foreach>     
+</select>    
+
+
+
+public interface Interceptor {
+    Object itercept(Invocation invocation) throws Throwable;
+
+    Object plugin(Object target);
+
+    void setProperties(Properties properties);
+
+}
 
 
 

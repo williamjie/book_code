@@ -7,7 +7,8 @@ import com.ssm.chapter9.pojo.JuiceMaker2;
 
 public class Chapter9Main {
 	public static void main(String[] args) {
-		testIoC();
+		//testIoC();
+		testCommon();
 	}
 	
 	public static void testCommon() {

@@ -14,6 +14,7 @@ public class TransactionValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
+		/*
 		Transaction trans = (Transaction) target;
 		//求交易金额和价格×数量的差额
 		double dis = trans.getAmount() - (trans.getPrice() * trans.getQuantity());
@@ -22,5 +23,15 @@ public class TransactionValidator implements Validator {
 			//加入错误信息
 			errors.rejectValue("amount", null, "交易金额和购买数量与价格不匹配");
 		}
+		*/
+
+
+		Transaction trans = (Transaction) target;
+		double dis = trans.getAmount() - (trans.getPrice()* trans.getQuantity());
+
+		if (Math.abs(dis) > 0.01) {
+			errors.rejectValue("amount", null, "交易金额和购买数量与价格不匹配");
+		}
+
 	}
 }

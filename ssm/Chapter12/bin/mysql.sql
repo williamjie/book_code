@@ -1,5 +1,9 @@
 create database chapter12;
+
+
 use chapter12;
+
+
 create table t_role(
 id int(12) not null auto_increment,
 role_name varchar(60) not null,

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="unnamed">
+    <output-path>$PROJECT_DIR$/classes/artifacts/unnamed</output-path>
+    <root id="root">
+      <element id="dir-copy" path="$PROJECT_DIR$/../apache-tomcat-9.0.24/webapps/ROOT" />
+    </root>
+  </artifact>
+</component>

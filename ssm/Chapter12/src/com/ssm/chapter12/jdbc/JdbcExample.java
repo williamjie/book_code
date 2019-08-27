@@ -12,22 +12,22 @@ public class JdbcExample {
 	
 	public Role getRole(Long id) {
 		Role role = null;
-		// ÉùÃ÷JDBC±äÁ¿
+		// ï¿½ï¿½ï¿½ï¿½JDBCï¿½ï¿½ï¿½ï¿½
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			// ×¢²áÇý¶¯³ÌÐò
+			// ×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			Class.forName("com.mysql.jdbc.Driver");
-			// »ñÈ¡Á¬½Ó
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/chapter12", "root", "123456");
-			// Ô¤±àÒëSQL
+			// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/chapter12", "reader", "123456");
+			// Ô¤ï¿½ï¿½ï¿½ï¿½SQL
 			ps = con.prepareStatement("select id, role_name, note from t_role where id = ?");
-			// ÉèÖÃ²ÎÊý
+			// ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½
 			ps.setLong(1, id);
-			// Ö´ÐÐSQL
+			// Ö´ï¿½ï¿½SQL
 			rs = ps.executeQuery();
-			// ×é×°½á¹û¼¯·µ»ØPOJO
+			// ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½POJO
 			while (rs.next()) {
 				role = new Role();
 				role.setId(rs.getLong(1));
@@ -35,10 +35,10 @@ public class JdbcExample {
 				role.setNote(rs.getString(3));
 			}
 		} catch (ClassNotFoundException | SQLException e) {
-			// Òì³£´¦Àí
+			// ï¿½ì³£ï¿½ï¿½ï¿½ï¿½
 			e.printStackTrace();
 		} finally {
-			// ¹Ø±ÕÊý¾Ý¿âÁ¬½Ó×ÊÔ´
+			// ï¿½Ø±ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´
 			try {
 				if (rs != null && !rs.isClosed()) {
 					rs.close();
