@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>boot-demo</artifactId>
+        <groupId>com.git.hui.boot</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <modules>
+        <module>000-properties</module>
+        <module>001-properties</module>
+        <module>002-properties</module>
+        <module>003-log</module>
+        <module>004-bean</module>
+        <module>005-autoconfig</module>
+        <module>006-dynamicbean</module>
+        <module>007-conditionbean</module>
+        <module>008-beanorder</module>
+        <module>009-schedule</module>
+        <module>010-aop</module>
+        <module>011-aop-logaspect</module>
+        <module>100-mysql</module>
+        <module>101-jdbctemplate</module>
+        <module>120-redis-config</module>
+        <module>121-redis-jedis-config</module>
+        <module>122-redis-template</module>
+        <module>123-redis-lettuce-config</module>
+        <module>110-mongo-basic</module>
+        <module>111-mongo-template</module>
+        <module>130-influxdb</module>
+        <module>140-search-solr</module>
+        <module>200-webflux</module>
+        <module>201-web</module>
+        <module>202-web-params</module>
+        <module>203-websocket</module>
+        <module>102-jpa</module>
+        <module>131-influxdb-java</module>
+        <module>204-web-freemaker</module>
+        <module>205-web-thymeleaf</module>
+        <module>012-context-listener</module>
+        <module>206-web-beetl</module>
+    </modules>
+
+    <artifactId>spring-boot</artifactId>
+
+    <description>SpringBoot相关演示demo</description>
+
+
+</project>
