@@ -7,9 +7,9 @@ import com.ssm.chapter22.pojo.UserRedPacket;
 public interface UserRedPacketDao {
 
 	/**
-	 * ²åÈëÇÀºì°üÐÅÏ¢.
-	 * @param userRedPacket ¡ª¡ªÇÀºì°üÐÅÏ¢
-	 * @return Ó°Ïì¼ÇÂ¼Êý.
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢.
+	 * @param userRedPacket ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+	 * @return Ó°ï¿½ï¿½ï¿½Â¼ï¿½ï¿½.
 	 */
 	public int grapRedPacket(UserRedPacket  userRedPacket);
 }
