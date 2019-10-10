@@ -16,6 +16,7 @@ public class SpringbootRedisApplicationTests {
 	public static Logger logger= LoggerFactory.getLogger(SpringbootRedisApplicationTests.class);
 	@Test
 	public void contextLoads() {
+		logger.info(redisDao.getValue("name"));
 	}
 
 	@Autowired

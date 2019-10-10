@@ -57,8 +57,8 @@ public class SpringbootRedisApplication {
 		StringRedisTemplate template = ctx.getBean(StringRedisTemplate.class);
 		CountDownLatch latch = ctx.getBean(CountDownLatch.class);
 
-		LOGGER.info("Sending message...");
-		template.convertAndSend("chat", "Hello from Redis!");
+		LOGGER.info("==============Sending message...");
+		template.convertAndSend("chat", "========Hello from Redis!");
 
 		latch.await();
 
